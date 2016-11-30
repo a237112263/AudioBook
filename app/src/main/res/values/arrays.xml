@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="componetquestion">
+        <item>Android的四大组件是什么？它们的作用是什么？</item>
+        <item>Activity的生命周期</item>
+        <item>让Activity变成一个窗口</item>
+    </string-array>
+
+
+    <string-array name="componet">
+        <item>答:Android有四大组件：Activity、Service、Broadcast Receiver、Content Provider。\n\n
+                Activity :应用程序中，一个Activity通常就是一个单独的屏幕，它上面可以显示一些控件也可以监听并处理用户的事件做出响应。Activity之间通过Intent进行通信。\n\n
+                Service 服务:一个Service 是一段长生命周期的，没有用户界面的程序，可以用来开发如监控类程序。\n\n
+                BroadcastReceive广播接收器:你的应用可以使用它对外部事件进行过滤只对感兴趣的外部事件(如当电话呼入时，或者数据网络可用时)进行接收并做出响应。广播接收器没有用户界面。然而，它们可以启动一个activity或serice 来响应它们收到的信息。
+                \n\nContent Provider内容提供者 :主要用于多个应用间数据共享。这些数据可以存储在文件系统中或SQLite数据库。</item>
+        <item>答：onCreate: 在这里创建界面，做一些数据 的初始化工作
+　　              \n\nonStart: 到这一步变成用户可见不可交互的
+                  \n\nonResume:变成和用户可交互 的，(在activity 栈系统通过栈的方式管理这些个Activity的最上面，运行完弹出栈，则回到上一个Activity)
+　　              \n\nonPause: 到这一步是可见但不可交互的，系统会停止动画 等消耗CPU 的事情从上文的描述已经知道，应该在这里保存你的一些数据,因为这个时候你的程序的优先级降低，有可能被系统收回。在这里保存的数据，应该在
+　　              \n\nonstop: 变得不可见，被下一个activity覆盖了
+                  \n\nonDestroy: 这是activity被干掉前最后一个被调用方法了，可能是外面类调用finish方法或者是系统为了节省空间将它暂时性的干掉</item>
+        <item>
+              答：Activity属性设定：有时候会做个应用程序是漂浮在手机主界面的。这个只需要在设置下Activity的主题theme,即在Manifest.xml定义Activity的地方加一句：android :theme="@android:style/Theme.Dialog"
+                  如果是作半透明的效果：android:theme="@android:style/Theme.Translucent"
+        </item>
+    </string-array>
+
+
+
+
+    <string-array name="java">
+        <item>方法的重载与覆盖的区别</item>
+        <item>String 、StringBuilder 和StringBuffer的区别</item>
+        <item>字符串“abcde”通过写一个函数不让调用第三方的字符串，实现一个字符串倒序，比如字符串“abcde” 变成“edcba”</item>
+        <item>抽象类与接口的区别（abstract与interface的区别)</item>
+        <item>集合的实现类与区别?</item>
+        <item>线程的实现方式</item>
+        <item>sleep() 与 wait()的区别</item>
+        <item>线程有几种状态,分别是哪些?（调用run()和调用start()的区别）</item>
+        <item>Final、finally、finanlize()的区别</item>
+        <item>常用设计模式及应用场景，用两种方式实现单例模式，要求线程安全？</item>
+    </string-array>
+
+
+    <string-array name="java1">
+        <item>答: 方法的重载属于编译时多态,方法名相同参数列表不同,返回值必须相同或都没有返回值类型。方法的覆盖属于运行时多态，子类覆盖父类的方法,子类指向父类引用,在调用方法的时候用父类的引用调用。</item>
+        <item>答: String是常量，而StringBuilder 和StringBuffer是变量。如果你对字符串中的内容经常进行操作，特别是内容要修改时，那么使用StringBuffer，如果最后需要String，那么使用StringBuffer的toString()方法。StringBuilder
+                   是线程非安全，StringBuffer是线性安全。</item>
+        <item>String src = "ABCDEF "; String dst = new StringBuffer(src).reverse().toString();</item>
+        <item>abstract可以修饰抽象方法，而一个类只要有一个抽象方法，就必须用abstract定义该类，即抽象类。
+              用interface修饰的类，里面的方法都是抽象方法，因此在定义接口的时候，可以直接不加那些修饰，系统会默认的添上去。接口里面的字段都是公有常量，即public static final修饰的字段。</item>
+        <item>
+              答:Collection接口，集合结构总的父接口，有两个子接口list和set\n
+              List接口 元素有序可重复。实现类有：ArrayList 数组实现轻量级，运行快，线程不安全。JDK1.2 查询快\n
+              Vector 数组实现重量级，运行慢，线程安全。JDK1.0\n
+              LinkedList链表实现 常用语堆栈与队列的实现 增删操作快\n
+              Set 接口 元素无序不可重复。实现类有：HashSet，底层用hashCode()算法实现，保证元素的无序唯一，自定义对象存进HashSet为了保证元素内容不重复需要覆盖hashCode()与equals()方法。\n
+              SortedSet(不重要) 元素有序（Unicode升序）唯一\n
+              TreeSet要求元素有序，自定义的对象需要实现Comparable接口的 compareTo（object o）方法\n
+              Map(接口): 与Collection接口无关,有一个子接口SortedMap特点: 元素是key-value, key唯一,无序; value可重复。实现类: HashMap 轻量级 线程不安全的,允许key或value为null JDK1.2\n
+              HashTable 重量级 线程安全的 不允许key或value为null JDK1.0\n
+              Properties是HashTable的子类,主键和值都是字符串\n
+              SortedMap:(不重要)特点: key唯一,有序(Unicode升序)。实现类:TreeMap
+        </item>
+        <item>答：线程的实现有两种方式，一是继承Thread类，二是实现Runnable接口</item>
+        <item>答：1.这两个方法来自不同的类分别是，sleep来自Thread类，和wait来自Object类;\n2.最主要是sleep方法没有释放锁，而wait方法释放了锁，使得其他线程可以使用同步控制块或者方法。sleep不出让系统资源；wait是进入线程等待池
+               等待，出让系统资源，其他线程可以占用CPU。一般wait不会加时间限制，因为如果wait线程的运行资源不够，再出来也没用，要等待其他线程调用notify/notifyAll唤醒等待池中的所有线程，才会进入就绪队列等待OS分配系统资源。sleep(milliseconds)可以用时间指定使它自动唤醒过来，如果时间不到
+               只能调用interrupt()强行打断；\n3.wait，notify和notifyAll只能在同步控制方法或者同步控制块里面使用，而sleep可以在任何地方使用；\n4. Sleep需要捕获异常,而wait不需要</item>
+        <item>1.新建状态(New)：新创建了一个线程对象; \n2.就绪状态(Runnable)：线程对象创建后，其他线程调用了该对象的start()方法。该状态的线程位于可运行线程池中，变得可运行，等待获取CPU的使用权; \n 3.运行状态(Running)：就绪状态的线程获取了CPU，执行run()方法;\n
+          4.阻塞状态(Blocked)：阻塞状态是线程因为某种原因放弃CPU使用权，暂时停止运行。直到线程进入就绪状态，才有机会转到运行状态。阻塞的情况分三种：等待阻塞：运行的线程执行wait()方法，JVM会把该线程放入等待池中。同步阻塞：运行的线程在获取对象的同步锁时，若该同步锁被别的线程占用，则JVM会把该线程放入锁池中。其他阻塞：运行的线程执行sleep()或join()方法，或者发出了I/O请求时，JVM会把该线程置为阻塞状态。当sleep()状态超时、join()等待线程终止或者超时、或者I/O处理完毕时，线程重新转入就绪状态。
+          \n 5.死亡状态(Dead)：线程执行完了或者因异常退出了run()方法，该线程结束生命周期。</item>
+        <item>final?用于声明属性，方法和类，分别表示属性不可变，方法不可覆盖，类不可继承。finally是异常处理语句结构的一部分，表示总是执行。finalize是Object类的一个方法，在垃圾收集器执行的时候会调用被回收对象的此方法，可以覆盖此方法提供垃圾收集时的其他资源回收，例如关闭文件等。
+        </item>
+        <item>
+            答: 常用设计模式:\n单例模式: Calendar实例的获取\n适配器模式: Adapter为ListView GridView等添加数据\n工厂模式: Spring IOC 反转控制\n代理模式: Spring AOP 面向切面编程\n观察者模式: ContentObserver监听内容改变
+            \n\n（懒汉式）\n
+            public class Singleton {\n
+            private static Singleton singleton;\n
+            // 构造方法私有化，保证在类的外部无法实例化该类的对象\n private Singleton() {\n}\n public static synchronized Singleton getSingletonInstance() {\n if (singleton == null) { \n singleton = new Singleton();
+            \n}\n return singleton;\n}\n}\n\n
+            （饿汉式）类加载的时候就实例化该类的对象\n
+            public class Singleton {\n private static Singleton singleton = new Singleton(); \n private Singleton() {\n} \n public static Singleton getSingletonInstance() { \n return singleton;\n} \n }
+        </item>
+
+    </string-array>
+</resources>
